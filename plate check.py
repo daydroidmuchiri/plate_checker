@@ -1,3 +1,4 @@
+import os
 import openpyxl
 import telegram
 from telegram.ext import Updater, CommandHandler, MessageHandler, Filters
@@ -8,8 +9,7 @@ workbook = openpyxl.load_workbook(file_path)
 sheet = workbook.active
 
 # Get a list of all the values in the first column of the sheet
-column = sheet['A']
-values = [cell.value for cell in column]
+values = [cell.value for cell in sheet[1]]
 
 # Define the bot's behavior when a message is received
 def message_handler(update, context):

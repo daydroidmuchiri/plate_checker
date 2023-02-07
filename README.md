@@ -1,2 +1,1 @@
-# plate_checker
-A python script that checks number plate registration.
+This code creates a Telegram bot that reads values from a column in an Excel sheet. The bot then sends a message to the user, indicating whether the message received from the user matches any of the values in the column. If a match is found, the bot sends "registered". If no match is found, the bot sends "not registered". The bot uses the Python library "openpyxl" to work with the Excel sheet, and the library "telegram" to interact with the Telegram API.
