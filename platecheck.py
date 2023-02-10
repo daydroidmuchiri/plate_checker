@@ -7,7 +7,7 @@ values = []
 with open(file_path, "r") as file:
     reader = csv.reader(file)
     for row in reader:
-        values.append(row[0])
+        values.extend(row)
 
 # Define the bot's behavior when a message is received
 def message_handler(update, context):
