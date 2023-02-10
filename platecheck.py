@@ -1,15 +1,13 @@
-import os
-import openpyxl
-import telegram
-from telegram.ext import Updater,  MessageHandler, Filters
+import csv
+from telegram.ext import Updater, MessageHandler, Filters
 
-# Load the Excel sheet
-file_path = "data.xlsx"
-workbook = openpyxl.load_workbook(file_path)
-sheet = workbook.active
-
-# Get a list of all the values in Column A
-values = [cell.value for row in sheet.iter_rows(min_row=1, max_row=sheet.max_row, min_col=1, max_col=1) for cell in row]
+# Load the CSV file
+file_path = "data.csv"
+values = []
+with open(file_path, "r") as file:
+    reader = csv.reader(file)
+    for row in reader:
+        values.append(row[0])
 
 # Define the bot's behavior when a message is received
 def message_handler(update, context):
